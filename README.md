@@ -23,6 +23,7 @@ after building docker image of Web Api you can run the below command from the **
 
 ```powershell
 docker-compose up
+```
 
 
 ## Description:
