@@ -19,7 +19,7 @@ You can run the bellow command from the **/source/LoyaltyMemberManagement/API/**
 docker build -f "Dockerfile" -t membermanagementapi_image ..
 ```
 
-after building docker image of Web Api you can run the below command from the **/setup/** directory to run postgresql enviroment and also run initialize.sql
+after building docker image of Web Api you can run the below command from the **/setup/** directory to run postgresql enviroment and also run initialize.sql located in **/setup/sql/initialize.sql**
 
 ```powershell
 docker-compose up
