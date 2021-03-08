@@ -39,4 +39,89 @@ After up and running `docker-compose.yml`, please open the following url to acce
 
 ![swagger](https://github.com/emrealper/loyalty-management/blob/main/media/swaggerui.png)
 
+## Adding bulk member data to work on it
+
+You can use below json string as Request body of  `api/Member/MembersBulkCreate` POST method
+
+``` JSON
+[
+	{
+		"Name": "Anakin Skywalker",
+		"Address": "Landsberger Straße 110",
+		"Accounts": 
+		[
+			{
+				"Name": "Burger King",
+				"Balance": 10,
+				"Status": "ACTIVE"
+			},
+			{
+				"Balance": 150,
+				"Status": "INACTIVE",
+				"Name": "Fitness First"
+			}
+		]
+	},
+	{
+		"Name": "Darth Vader",
+		"Address": "Landsberger Straße 112",
+		"Accounts": 
+		[
+			{
+				"Balance": 10,
+				"Status": "ACTIVE",
+				"Name": "Lufthansa"
+			}
+		]
+	},
+	{
+		"Name": "Obi-Wan Kenobi",
+		"Address": "Landsberger Straße 114",
+		"Accounts": 
+		[
+			{
+				"Balance": 0,
+				"Status": "ACTIVE",
+				"Name": "Lufthansa"
+			},
+			{
+				"Balance": 17,
+				"Status": "ACTIVE",
+				"Name": "Fitness First"
+			},
+			{
+				"Name": "Burger King",
+				"Balance": 20,
+				"Status": "ACTIVE"
+			}
+		]
+	},
+	{
+		"Name": "Yoda",
+		"Address": "Landsberger Straße 114",
+		"Accounts": 
+		[
+			{
+				"Balance": 10,
+				"Status": "ACTIVE",
+				"Name": "Lufthansa"
+			}
+		]
+	}
+]
+```
+
+After adding bulk member data the postgresql table will be as follows
+
+
+![members](https://github.com/emrealper/loyalty-management/blob/main/media/members.png)
+
+![memberaccounts](https://github.com/emrealper/loyalty-management/blob/main/media/memberaccounts.png)
+
+
+
+
+
+
+
 
