@@ -31,5 +31,5 @@ This repo contains a sample application which simulates members and account oper
 
 * **Enrollment** - Contains 3 `POST` method to `create a new member`, `define account for existing member` and `adding bulk members`. 
 * **Earn & Burn** - Contains 2 `PUT` method to `collect point to an account` and `redeemed point from an account`
-* **Search & List** - Contains 2 `GET` method to `filter members based on filter criteria ` and `list all members`
+* **Search & List** - Contains 2 `GET` method to `filter members based on filter criteria` and `list all members`
 
