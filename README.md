@@ -50,7 +50,7 @@ This reference app describes sample flow for using Loyalty Management Member API
 7. List all members
 
 ### 1. Initially import existing members
-Sample request body from POST /api/Member/MembersBulkCreate
+Sample request body from POST `/api/Member/MembersBulkCreate`
 
 ``` 
 [
@@ -128,7 +128,7 @@ After adding bulk member data; postgresql table will be as follows
 
 
 ### 2. Enroll a new member
-Sample request body for POST `/api/Member/CreateMember
+Sample request body for POST `/api/Member/CreateMember`
 
 ```
 {
