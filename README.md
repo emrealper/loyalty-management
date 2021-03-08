@@ -144,7 +144,7 @@ Sample request body for POST `/api/Member/CreateNewAccount`
 {
   "memberId": 5,
   "memberAccount": {
-    "name": "Tshibo"
+    "name": "Tchibo"
   }
 }
 ```
