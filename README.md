@@ -128,7 +128,7 @@ After adding bulk member data; postgresql table will be as follows
 
 
 ### 2. Enroll a new member
-Sample request body from POST /api/Member/CreateMember
+Sample request body for POST `/api/Member/CreateMember
 
 ```
 {
@@ -138,7 +138,7 @@ Sample request body from POST /api/Member/CreateMember
 ```
 
 ### 3. Enroll a new account for defined member. Creates a new empty account (with zero balance) 
-Sample request body from POST /api/Member/CreateNewAccount
+Sample request body for POST `/api/Member/CreateNewAccount`
 
 ```
 {
@@ -150,7 +150,7 @@ Sample request body from POST /api/Member/CreateNewAccount
 ```
 
 ### 4. Collect points to an existing account
-Sample request body from PUT /api/Account/CollectPoint
+Sample request body for PUT `/api/Account/CollectPoint`
 
 ```
 {
@@ -160,7 +160,7 @@ Sample request body from PUT /api/Account/CollectPoint
 ```
 
 ### 5. Redeem points from an existing account.
-Sample request body from PUT /api/Account/RedeemPoint
+Sample request body for PUT `/api/Account/RedeemPoint`
 
 ```
 {
