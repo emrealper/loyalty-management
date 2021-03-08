@@ -35,11 +35,11 @@ This repo contains a sample application which simulates members and account oper
 
 
 ## Use Case
+
 After up and running `docker-compose.yml`, please open the following url to access swagger ui locally: http://localhost:5000/swagger/index.html
 
 ![swagger](https://github.com/emrealper/loyalty-management/blob/main/media/swaggerui.png)
 
-## Use Case
 This reference app describes sample flow for using Loyalty Management Member API :
 1. Initially import existing members
 2. Enroll a new member
