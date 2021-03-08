@@ -37,5 +37,6 @@ This repo contains a sample application which simulates members and account oper
 ## Usage of the Api
 After up and running `docker-compose.yml`, please open the following url to access swagger ui locally: http://localhost:5000/swagger/index.html
 
+![swagger](https://github.com/emrealper/loyalty-management/blob/main/media/swaggerui.png)
 
 
