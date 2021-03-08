@@ -9,8 +9,8 @@ The primary goal of this sample is to explain following software-architecture co
 
 and methods and tools to store and manage persistance like :
 * PostgreSQL
-* Entity Framework Core for Command operations
-* Dapper for Query operations
+* Entity Framework Core for `Command operations`
+* Dapper for `Query operations`
 
 
 ## How to set up and run the project
