@@ -33,3 +33,9 @@ This repo contains a sample application which simulates members and account oper
 * **Earn & Burn** - Contains 2 `PUT` method to `collect point to an account` and `redeemed point from an account`
 * **Search & List** - Contains 2 `GET` method to `filter members based on filter criteria` and `list all members`
 
+
+## Usage of the Api
+After up and running docker-compose.yml, please open the following url to access swagger ui locally (http://localhost:5000/swagger/index.html/)
+
+
+
