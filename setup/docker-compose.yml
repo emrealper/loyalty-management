@@ -1,0 +1,60 @@
+version: "3.8"
+
+
+networks:
+  mynetwork:
+     driver: bridge
+
+services:
+  postgres:
+    image: postgres:13.1
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/postgresql/data/pgdata
+ 
+    volumes:
+          - ./postgres_data:/var/lib/postgresql
+          # copy the sql script to create db and tables tables
+          - ./sql/initialize.sql:/docker-entrypoint-initdb.d/initialize.sql
+         
+    ports:
+      - 5432:5432
+    networks:
+       - mynetwork 
+
+  pgadmin:
+      container_name: pgadmintest_container
+      image: dpage/pgadmin4
+      restart: always
+      environment:
+        PGADMIN_DEFAULT_EMAIL: admin@admin.com
+        PGADMIN_DEFAULT_PASSWORD: root
+      ports:
+        - "5050:80" 
+
+
+  membermanagementapi:
+    image: membermanagementapi_image
+    hostname: "membermanagementapi"
+    container_name: membermanagementapi
+    depends_on:
+      - postgres
+    ports:
+     - "5000:80"
+    networks:
+       - mynetwork 
+    deploy:
+        resources:
+            limits:
+              cpus: '2.0'
+              memory: 512M
+            reservations:
+              cpus: '2.0'
+              memory: 512M         
