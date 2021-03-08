@@ -34,16 +34,25 @@ This repo contains a sample application which simulates members and account oper
 * **Search & List** - Contains 2 `GET` method to `filter members based on filter criteria` and `list all members`
 
 
-## Usage of the Api
+## Use Case
 After up and running `docker-compose.yml`, please open the following url to access swagger ui locally: http://localhost:5000/swagger/index.html
 
 ![swagger](https://github.com/emrealper/loyalty-management/blob/main/media/swaggerui.png)
 
-## Adding bulk member data to work on it
+## Use Case
+This reference app describes sample flow for using Loyalty Management Member API :
+1. Initially import existing members
+2. Enroll a new member
+3. Enroll a new account for defined member
+4. Collect points to an existing account
+5. Redeem points from an existing account
+6. Search members using a sample filter criteria
+7. List all members
 
-You can use below json string as Request body of  `api/Member/MembersBulkCreate` POST method
+### 1. Initially import existing members
+Sample request body from POST /api/Member/MembersBulkCreate
 
-``` JSON
+``` 
 [
 	{
 		"Name": "Anakin Skywalker",
@@ -113,15 +122,67 @@ You can use below json string as Request body of  `api/Member/MembersBulkCreate`
 
 After adding bulk member data; postgresql table will be as follows
 
-
 ![members](https://github.com/emrealper/loyalty-management/blob/main/media/members.png)
 
 ![memberaccounts](https://github.com/emrealper/loyalty-management/blob/main/media/memberaccounts.png)
 
 
+### 2. Enroll a new member
+Sample request body from POST /api/Member/CreateMember
 
+```
+{
+  "name": "A. Emre Alper",
+  "address": "Landsberger Straße 118"
+}
+```
 
+### 3. Enroll a new account for defined member. Creates a new empty account (with zero balance) 
+Sample request body from POST /api/Member/CreateNewAccount
 
+```
+{
+  "memberId": 5,
+  "memberAccount": {
+    "name": "Tshibo"
+  }
+}
+```
 
+### 4. Collect points to an existing account
+Sample request body from PUT /api/Account/CollectPoint
 
+```
+{
+  "memberAccountId": 1,
+  "point": 100
+}
+```
+
+### 5. Redeem points from an existing account.
+Sample request body from PUT /api/Account/RedeemPoint
+
+```
+{
+  "memberAccountId": 1,
+  "point": 100
+}
+```
+Expected response if the account balance is not enough:
+
+```
+"Existing balance is not enough to redeem the point"
+```
+
+Expected response if the account is inactive:
+
+```
+"Points cannot be redeemed from inactive account"
+```
+
+### 6. Search members using a sample filter criteria.
+Sample request: GET /api/Search/20/INACTIVE
+
+### 7. List all members.
+Sample request: GET /api/Search/ListAll
 
