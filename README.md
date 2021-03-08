@@ -8,7 +8,7 @@ The primary goal of this sample is to explain following software-architecture co
 * Docker-Compose
 
 and methods and tools to manage persistance and its transactions like :
-* PostgreSQL
+* PostgreSQL on docker
 * Entity Framework Core for `Command operations`
 * Dapper for `Query operations`
 
