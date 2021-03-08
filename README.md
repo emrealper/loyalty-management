@@ -111,7 +111,7 @@ You can use below json string as Request body of  `api/Member/MembersBulkCreate`
 ]
 ```
 
-After adding bulk member data the postgresql table will be as follows
+After adding bulk member data; postgresql table will be as follows
 
 
 ![members](https://github.com/emrealper/loyalty-management/blob/main/media/members.png)
