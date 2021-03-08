@@ -168,13 +168,13 @@ Sample request body for PUT `/api/Account/RedeemPoint`
   "point": 100
 }
 ```
-Expected response if the account balance is not enough:
+Expected response if the account `balance is not enough`:
 
 ```
 "Existing balance is not enough to redeem the point"
 ```
 
-Expected response if the account is inactive:
+Expected response if the account is `INACTIVE`:
 
 ```
 "Points cannot be redeemed from inactive account"
