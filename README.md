@@ -186,3 +186,7 @@ Sample request: GET /api/Search/20/INACTIVE
 ### 7. List all members.
 Sample request: GET /api/Search/ListAll
 
+
+## Author
+- Name: **Emre Alper**
+- Contact: **emrealper@gmail.com**
