@@ -71,6 +71,7 @@ namespace API
                 });
 
                 c.DocInclusionPredicate((name, api) => true);
+                c.EnableAnnotations();
 
             });
 

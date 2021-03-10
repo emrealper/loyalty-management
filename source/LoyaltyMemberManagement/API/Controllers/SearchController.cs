@@ -7,13 +7,14 @@ using Application.Services.Queries.Member.ViewModel;
 using Domain.AggregatesModel.MemberAggregate;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace API.Controllers
 {
   
     [Route("api/[controller]")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "Search & List")]
+    //[ApiExplorerSettings(GroupName = "Search & List")]
     public class SearchController : BaseController
     {
 
@@ -24,6 +25,12 @@ namespace API.Controllers
         [HttpGet("{minPoint}/{accountStatus}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [SwaggerOperation(
+    Summary = "Search members by using criteria",
+    Description = "Search members by using criteria",
+    OperationId = "Members.GetAllWithMinPoint",
+    Tags = new[] { "Search & List" })
+            ]
         public async Task<ActionResult<MemberListVm>> GetAllWithMinPoint(decimal minPoint, string accountStatus)
         {
             var result = await Mediator.Send(new ListWithMinPointAndAccountStatusQuery { MinPoint = minPoint, AccountStatus = accountStatus });
@@ -35,6 +42,12 @@ namespace API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [SwaggerOperation(
+    Summary = "List all Members",
+    Description = "List all Members",
+    OperationId = "Members.GetAll",
+    Tags = new[] { "Search & List" })
+            ]
         public async Task<ActionResult<MemberListVm>> GetAll()
         {
             var result = await Mediator.Send(new ListAllMembersQuery {});
