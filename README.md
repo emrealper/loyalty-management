@@ -189,7 +189,7 @@ Sample request: GET /api/Search/ListAll
 
 ## Unit Tests
 
-You can see domain level unit test on Member.UnitTest project from `**/source/Member.UnitTests/**`
+You can see domain and application level unit test on Member.UnitTest project from **/source/Member.UnitTests/**
 
 ![unittests](https://github.com/emrealper/loyalty-management/blob/main/media/unittests.png)
 
