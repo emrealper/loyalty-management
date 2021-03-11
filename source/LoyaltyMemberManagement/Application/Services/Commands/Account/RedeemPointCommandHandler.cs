@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Services.Commands.Account.IntegrationEvents;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,13 @@ namespace Application.Services.Commands.Account
     public class RedeemPointCommandHandler : IRequestHandler<RedeemPointCommand, long>
     {
         private readonly IMemberManagementDbContext _context;
+        private readonly IMediator _mediator;
 
 
-        public RedeemPointCommandHandler(IMemberManagementDbContext context)
+        public RedeemPointCommandHandler(IMemberManagementDbContext context, IMediator mediator)
         {
             _context = context;
-
+            _mediator = mediator;
 
         }
 
@@ -29,6 +31,16 @@ namespace Application.Services.Commands.Account
 
             _context.MemberAccounts.Update(memberAccount);
             await _context.SaveChangesAsync(cancellationToken);
+
+
+            //publish to integration event
+            await _mediator.Send(new PointsRedeemed
+            {
+
+                AccountId = memberAccount.Id,
+                Point = request.Point
+
+            }, cancellationToken);
 
             return memberAccount.Id;
 
