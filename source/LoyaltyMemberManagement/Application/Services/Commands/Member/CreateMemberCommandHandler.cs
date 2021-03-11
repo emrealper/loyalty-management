@@ -24,7 +24,7 @@ namespace Application.Services.Commands
         public async Task<long> Handle(CreateMemberCommand request, CancellationToken cancellationToken)
         {
 
-            var member = new Member(request.Name,request.Address);
+            var member = new Domain.AggregatesModel.MemberAggregate.Member(request.Name,request.Address);
 
             _context.Members.Add(member);
             await _context.SaveChangesAsync(cancellationToken);

@@ -26,7 +26,7 @@ namespace Application.Services.Commands
         {
 
 
-            var member = new Member(request.Name, request.Address);
+            var member = new Domain.AggregatesModel.MemberAggregate.Member(request.Name, request.Address);
 
             foreach(var accountItem in request.Accounts)
              {
