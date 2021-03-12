@@ -14,8 +14,8 @@ methods and tools to manage persistance and its transactions like:
 
 and for logging and log monitoring:
 
-*Nlog
-*Seq
+* Nlog
+* Seq
 
 
 ## How to set up and run the project
