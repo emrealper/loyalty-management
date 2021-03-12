@@ -57,4 +57,12 @@ services:
               memory: 512M
             reservations:
               cpus: '2.0'
-              memory: 512M         
+              memory: 512M 
+
+  logserver:
+    image: datalust/seq:latest
+    container_name: logserver
+    ports:
+      - "5341:80"
+    environment:
+      - ACCEPT_EULA=Y                     
