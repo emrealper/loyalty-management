@@ -23,6 +23,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using System.IO;
 using API.Middleware;
+using NLog.Extensions.Logging;
 
 namespace API
 {
@@ -51,6 +52,14 @@ namespace API
             services
             .AddControllersWithViews()
             .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<IMemberManagementDbContext>());
+
+
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.ClearProviders();
+                loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                loggingBuilder.AddNLog();
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Member Management Api", Version = "v1" });
