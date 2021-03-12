@@ -193,6 +193,15 @@ You can see domain and application level unit test on Member.UnitTest project fr
 
 ![unittests](https://github.com/emrealper/loyalty-management/blob/main/media/unittests.png)
 
+## Log Monitoring
+
+Error logs are able to monitor using centralized structured monitoring (Seq)
+
+![seq](https://github.com/emrealper/loyalty-management/blob/main/media/seq.png)
+
+
+
+
 ## Author
 - Name: **Emre Alper**
 - Contact: **emrealper@gmail.com**
