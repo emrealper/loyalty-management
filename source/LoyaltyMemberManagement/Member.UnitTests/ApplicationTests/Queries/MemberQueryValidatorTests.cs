@@ -5,12 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
-
 namespace Member.UnitTests.ApplicationTests.Queries
 {
   public class MemberQueryValidatorTests
     {
-
         [Fact]
         public void IsValid_ShouldBeFalse_WhenMemberMinPointQueryIsNotValid()
         {
@@ -19,16 +17,9 @@ namespace Member.UnitTests.ApplicationTests.Queries
                 MinPoint = 100,
                 AccountStatus = string.Empty
             };
-
-
-
             var validator = new ListWithMinPointAndAccountStatusQueryValidator();
-
             var result = validator.Validate(query);
-
-
             result.IsValid.ShouldBe(false);
-
         }
     }
 }

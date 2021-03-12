@@ -8,7 +8,6 @@ using Application.Services.Commands.Bulk;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-
 namespace API.Controllers
 {
     [Route("api/[controller]")]
@@ -16,8 +15,6 @@ namespace API.Controllers
     //[ApiExplorerSettings(GroupName="Enrollment")]
     public class MemberController : BaseController
     {
-
-
         [Route("CreateMember")]
         [HttpPost]
         [SwaggerOperation(
@@ -28,13 +25,9 @@ namespace API.Controllers
 ]
         public async Task<IActionResult> CreateNewMember([FromBody]CreateMemberCommand command)
         {
-            
             var result=await Mediator.Send(command);
-
             return Ok(result);
         }
-
-
         [Route("CreateNewAccount")]
         [HttpPost]
         [SwaggerOperation(
@@ -45,13 +38,9 @@ namespace API.Controllers
             ]
         public async Task<IActionResult> CreateNewAccountForDefinedMember([FromBody] CreateAccountCommand command)
         {
-
             var result = await Mediator.Send(command);
-
             return Ok(result);
         }
-
-
         [Route("MembersBulkCreate")]
         [HttpPost]
         [SwaggerOperation(
@@ -62,12 +51,9 @@ namespace API.Controllers
             ]
         public async Task<IActionResult> CreateBulkMembers([FromBody] IReadOnlyList<CreateBulkMemberCommand> commands)
         {
-
             foreach(var command in commands)
             await Mediator.Send(command);
-
             return Ok(true);
         }
-
     }
 }

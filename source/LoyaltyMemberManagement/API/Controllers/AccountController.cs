@@ -7,14 +7,12 @@ using Application.Services.Commands.Account;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : BaseController
     {
-       
         [Route("CollectPoint")]
         [HttpPut]
         [SwaggerOperation(
@@ -25,14 +23,9 @@ namespace API.Controllers
             ]
         public async Task<IActionResult> CollectPointToAccount([FromBody] CollectPointCommand command)
         {
-
             var result = await Mediator.Send(command);
-
             return Ok(result);
         }
-
-
-
         [Route("RedeemPoint")]
         [HttpPut]
         [SwaggerOperation(
@@ -43,18 +36,8 @@ namespace API.Controllers
             ]
         public async Task<IActionResult> RedeemPointToAccount([FromBody] RedeemPointCommand command)
         {
-
             var result = await Mediator.Send(command);
-
             return Ok(result);
         }
-
-
-
     }
-
-
-
-
-
 }

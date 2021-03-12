@@ -6,13 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
 namespace Application.Common.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
-
         public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators)
         {
             _validators = validators;
@@ -25,12 +23,10 @@ namespace Application.Common.Behaviours
                 .SelectMany(result => result.Errors)
                 .Where(f => f != null)
                 .ToList();
-
             if (failures.Count != 0)
             {
                 throw new ValidationException(failures);
             }
-
             return next();
         }
     }

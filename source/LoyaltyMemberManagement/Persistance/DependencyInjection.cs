@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Text;
 using Persistance.Repositories;
 using Persistance.DataAccess;
-
 namespace Persistance
 {
     public static class DependencyInjection
@@ -17,13 +16,10 @@ namespace Persistance
         {
             services.AddDbContext<MemberManagementDbContext>(options =>
              options.UseNpgsql(configuration.GetConnectionString("MemberManagementDatabase")));
-
             services.AddScoped<IMemberManagementDbContext>(provider => provider.GetService<MemberManagementDbContext>());
-
             services.AddTransient<IMemberRepository, MemberRepository>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-
             return services;
         }
     }

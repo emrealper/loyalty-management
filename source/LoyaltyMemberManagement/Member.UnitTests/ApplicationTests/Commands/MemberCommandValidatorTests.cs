@@ -5,13 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
-
 namespace Member.UnitTests.ApplicationTests.Commands
 {
    public class MemberCommandValidatorTests
     {
-
-
         [Fact]
         public void IsValid_ShouldBeFalse_WhenCreateMemberCommandIsNotValid()
         {
@@ -20,18 +17,9 @@ namespace Member.UnitTests.ApplicationTests.Commands
                 Name = string.Empty,
                 Address = string.Empty
             };
-
-     
-
             var validator = new CreateMemberCommandValidator();
-
             var result = validator.Validate(command);
-
-
             result.IsValid.ShouldBe(false);
-
         }
-
-
     }
 }

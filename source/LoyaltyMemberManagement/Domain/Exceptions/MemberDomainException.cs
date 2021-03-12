@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Domain.Exceptions
 {
     /// <summary>
@@ -11,11 +10,9 @@ namespace Domain.Exceptions
     {
         public MemberDomainException()
         { }
-
         public MemberDomainException(string message)
             : base(message)
         { }
-
         public MemberDomainException(string message, Exception innerException)
             : base(message, innerException)
         { }

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Persistance
 {
     public static class ModelBuilderExtensions
@@ -13,14 +12,10 @@ namespace Persistance
             {
                 // Replace table names
                 entity.SetTableName(entity.GetTableName().ToLower());
-
                 foreach (var property in entity.GetProperties())
                 {
                     property.SetColumnName(property.GetColumnName().ToLower());
                 }
-
-              
-
             }
         }
     }

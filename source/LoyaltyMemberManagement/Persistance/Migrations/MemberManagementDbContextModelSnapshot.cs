@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Persistence;
-
 namespace Persistance.Migrations
 {
     [DbContext(typeof(MemberManagementDbContext))]
@@ -18,7 +17,6 @@ namespace Persistance.Migrations
                 .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.3");
-
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.Member", b =>
                 {
                     b.Property<long>("Id")
@@ -26,41 +24,32 @@ namespace Persistance.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("id")
                         .UseIdentityByDefaultColumn();
-
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("address");
-
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)")
                         .HasColumnName("createdby");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("createddate");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("name");
-
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)")
                         .HasColumnName("updatedby");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("updateddate");
-
                     b.HasKey("Id");
-
                     b.ToTable("members");
                 });
-
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.MemberAccount", b =>
                 {
                     b.Property<long>("Id")
@@ -68,58 +57,45 @@ namespace Persistance.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("id")
                         .UseIdentityByDefaultColumn();
-
                     b.Property<decimal>("Balance")
                         .HasColumnType("numeric")
                         .HasColumnName("balance");
-
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)")
                         .HasColumnName("createdby");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("createddate");
-
                     b.Property<long?>("MemberId")
                         .HasColumnType("bigint")
                         .HasColumnName("memberid");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("name");
-
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("status");
-
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)")
                         .HasColumnName("updatedby");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("updateddate");
-
                     b.HasKey("Id");
-
                     b.HasIndex("MemberId");
-
                     b.ToTable("memberaccounts");
                 });
-
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.MemberAccount", b =>
                 {
                     b.HasOne("Domain.AggregatesModel.MemberAggregate.Member", null)
                         .WithMany("MemberAccounts")
                         .HasForeignKey("MemberId");
                 });
-
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.Member", b =>
                 {
                     b.Navigation("MemberAccounts");
