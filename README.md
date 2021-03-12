@@ -15,7 +15,7 @@ methods and tools to manage persistance and its transactions like:
 and for logging and log monitoring:
 
 * Nlog
-* Seq
+* [Seq](https://datalust.co/seq)
 
 
 ## How to set up and run the project
