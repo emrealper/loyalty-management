@@ -195,7 +195,7 @@ You can see domain and application level unit test on Member.UnitTest project fr
 
 ## Log Monitoring
 
-Error logs are able to monitor (http://localhost:5341/) using centralized structured monitoring (Seq)
+Error logs are able to monitor (http://localhost:5341) using centralized structured monitoring (Seq)
 
 ![seq](https://github.com/emrealper/loyalty-management/blob/main/media/seq.png)
 
