@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-
 namespace Persistance.Migrations
 {
     public partial class InitialCreate : Migration
@@ -25,7 +24,6 @@ namespace Persistance.Migrations
                 {
                     table.PrimaryKey("PK_members", x => x.id);
                 });
-
             migrationBuilder.CreateTable(
                 name: "memberaccounts",
                 columns: table => new
@@ -51,18 +49,15 @@ namespace Persistance.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                 });
-
             migrationBuilder.CreateIndex(
                 name: "IX_memberaccounts_memberid",
                 table: "memberaccounts",
                 column: "memberid");
         }
-
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "memberaccounts");
-
             migrationBuilder.DropTable(
                 name: "members");
         }
