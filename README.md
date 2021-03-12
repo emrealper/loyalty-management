@@ -7,10 +7,15 @@ The primary goal of this sample is to explain following software-architecture co
 * Docker
 * Docker-Compose
 
-and methods and tools to manage persistance and its transactions like :
+methods and tools to manage persistance and its transactions like:
 * PostgreSQL on docker
 * Entity Framework Core for `Command operations`
 * Dapper for `Query operations`
+
+and for logging and log monitoring:
+
+* Nlog
+* [Seq](https://datalust.co/seq)
 
 
 ## How to set up and run the project
@@ -195,7 +200,7 @@ You can see domain and application level unit test on Member.UnitTest project fr
 
 ## Log Monitoring
 
-Error logs are able to monitor (http://localhost:5341) using centralized structured monitoring (Seq)
+Error logs and also event logs are able to monitor (http://localhost:5341) using centralized structured monitoring (Seq)
 
 ![seq](https://github.com/emrealper/loyalty-management/blob/main/media/seq.png)
 
