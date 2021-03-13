@@ -18,10 +18,8 @@ namespace API.Controllers
         [Route("CreateMember")]
         [HttpPost]
         [SwaggerOperation(
-    Summary = "Enrolls a new Member",
-    Description = "Enrolls a new Member",
-    OperationId = "Member.Create",
-    Tags = new[] { "Enrollment" })
+    Summary = "Enrolls a new Member", Description = "Enrolls a new Member",
+    OperationId = "Member.Create", Tags = new[] { "Enrollment" })
 ]
         public async Task<IActionResult> CreateNewMember([FromBody]CreateMemberCommand command)
         {
@@ -31,10 +29,8 @@ namespace API.Controllers
         [Route("CreateNewAccount")]
         [HttpPost]
         [SwaggerOperation(
-    Summary = "Enrolls a new Account",
-    Description = "Enrolls a new Account for defined Member",
-    OperationId = "Account.Create",
-    Tags = new[] { "Enrollment" })
+    Summary = "Enrolls a new Account", Description = "Enrolls a new Account for defined Member",
+    OperationId = "Account.Create", Tags = new[] { "Enrollment" })
             ]
         public async Task<IActionResult> CreateNewAccountForDefinedMember([FromBody] CreateAccountCommand command)
         {
@@ -44,10 +40,8 @@ namespace API.Controllers
         [Route("MembersBulkCreate")]
         [HttpPost]
         [SwaggerOperation(
-    Summary = "Enrolls bulk members",
-    Description = "Enrolls bulk members",
-    OperationId = "Member.BulkCreate",
-    Tags = new[] { "Enrollment" })
+    Summary = "Enrolls bulk members", Description = "Enrolls bulk members",
+    OperationId = "Member.BulkCreate",Tags = new[] { "Enrollment" })
             ]
         public async Task<IActionResult> CreateBulkMembers([FromBody] IReadOnlyList<CreateBulkMemberCommand> commands)
         {

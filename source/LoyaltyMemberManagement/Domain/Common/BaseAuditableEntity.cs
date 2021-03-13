@@ -50,6 +50,7 @@ namespace Domain.Common
             else
                 return item.Id == this.Id;
         }
+
         public override int GetHashCode()
         {
             if (!IsTransient())
@@ -61,6 +62,7 @@ namespace Domain.Common
             else
                 return base.GetHashCode();
         }
+
         public static bool operator ==(BaseAuditableEntity left, BaseAuditableEntity right)
         {
             if (Object.Equals(left, null))

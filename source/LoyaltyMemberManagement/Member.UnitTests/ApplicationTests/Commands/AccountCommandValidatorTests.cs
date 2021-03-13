@@ -32,6 +32,7 @@ namespace Member.UnitTests.ApplicationTests.Commands
             result.IsValid.ShouldBe(false);
             resultForEmptyAccountName.IsValid.ShouldBe(false);
         }
+
         [Fact]
         public void IsValid_ShouldBeFalse_WhenCollectPointCommandIsNotValid()
         {
@@ -44,6 +45,7 @@ namespace Member.UnitTests.ApplicationTests.Commands
             var result = validator.Validate(command);
             result.IsValid.ShouldBe(false);
         }
+
         [Fact]
         public void IsValid_ShouldBeFalse_WhenRedeemPointCommandIsNotValid()
         {

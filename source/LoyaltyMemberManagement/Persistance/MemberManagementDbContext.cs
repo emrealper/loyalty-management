@@ -22,8 +22,11 @@ namespace Persistence
         {
             _dateTime = dateTime;
         }
+
         public DbSet<Member> Members { get; set; }
+
         public DbSet<MemberAccount> MemberAccounts { get; set; }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             foreach (var entry in ChangeTracker.Entries<BaseAuditableEntity>())
@@ -42,6 +45,7 @@ namespace Persistence
             }
             return base.SaveChangesAsync(cancellationToken);
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.TableNamesToLowerCase();

@@ -17,6 +17,7 @@ namespace Application.Services.Commands.Account
             _context = context;
             _mediator = mediator;
         }
+
         public async Task<long> Handle(RedeemPointCommand request, CancellationToken cancellationToken)
         {
             var memberAccount = await _context.MemberAccounts.FindAsync(request.MemberAccountId);

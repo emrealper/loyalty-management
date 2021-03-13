@@ -27,6 +27,7 @@ namespace Persistance.Repositories
             _dbConnection.Dispose();
             return result;
         }
+
         public async Task<IEnumerable<Member>> GetAll()
         {
             var query = $"select Id,Name,Address from public.Members";

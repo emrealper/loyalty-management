@@ -19,10 +19,8 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [SwaggerOperation(
-    Summary = "Search members by using criteria",
-    Description = "Search members by using criteria",
-    OperationId = "Members.GetAllWithMinPoint",
-    Tags = new[] { "Search & List" })
+    Summary = "Search members by using criteria", Description = "Search members by using criteria",
+    OperationId = "Members.GetAllWithMinPoint", Tags = new[] { "Search & List" })
             ]
         public async Task<ActionResult<MemberListVm>> GetAllWithMinPoint(decimal minPoint, string accountStatus)
         {
@@ -34,10 +32,8 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [SwaggerOperation(
-    Summary = "List all Members",
-    Description = "List all Members",
-    OperationId = "Members.GetAll",
-    Tags = new[] { "Search & List" })
+    Summary = "List all Members", Description = "List all Members",
+    OperationId = "Members.GetAll", Tags = new[] { "Search & List" })
             ]
         public async Task<ActionResult<MemberListVm>> GetAll()
         {

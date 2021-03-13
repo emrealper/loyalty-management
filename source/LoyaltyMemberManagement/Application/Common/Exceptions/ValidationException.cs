@@ -12,6 +12,7 @@ namespace Application.Common.Exceptions
         {
             Failures = new Dictionary<string, string[]>();
         }
+
         public ValidationException(IEnumerable<ValidationFailure> failures)
             : this()
         {
@@ -24,6 +25,7 @@ namespace Application.Common.Exceptions
                 Failures.Add(propertyName, propertyFailures);
             }
         }
+
         public IDictionary<string, string[]> Failures { get; }
     }
 }

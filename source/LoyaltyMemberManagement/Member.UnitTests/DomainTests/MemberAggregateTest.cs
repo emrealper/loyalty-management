@@ -8,9 +8,8 @@ namespace Member.UnitTests.DomainTests
 {
    public class MemberAggregateTest
     {
-        public MemberAggregateTest()
-        { 
-        }
+        public MemberAggregateTest() {}
+
         [Fact]
         public void Create_Member_Success()
         {
@@ -22,6 +21,7 @@ namespace Member.UnitTests.DomainTests
             //Assert
             Assert.NotNull(fakeMember);
         }
+
         [Fact]
         public void Add_MemberAccount_Success()
         {
@@ -37,6 +37,7 @@ namespace Member.UnitTests.DomainTests
             //Assert
             Assert.NotNull(fakeMember.MemberAccounts);
         }
+
         [Fact]
         public void Add_Empty_MemberAccount_Success()
         {
@@ -50,6 +51,7 @@ namespace Member.UnitTests.DomainTests
             //Assert
             Assert.NotNull(fakeMember.MemberAccounts);
         }
+
         [Fact]
         public void SHOULD_THROW_ERROR_WHEN_REDEEMED_FROM_EMPTY_ACCOUNT()
         {
@@ -62,6 +64,7 @@ namespace Member.UnitTests.DomainTests
             //Assert
             Assert.Throws<MemberDomainException>(() => fakeMemberAccount.RedeemPointFromAccount(100));
         }
+
         [Fact]
         public void SHOULD_THROW_ERROR_WHEN_REDEEMED_FROM_INACTIVE_ACCOUNT()
         {
@@ -74,6 +77,7 @@ namespace Member.UnitTests.DomainTests
             //Assert
             Assert.Throws<MemberDomainException>(() => fakeMemberAccount.RedeemPointFromAccount(100));
         }
+
         [Fact]
         public void SHOULD_THROW_ERROR_WHEN_REDEEMED_FROM_ACCOUNT_BALANCE_NOT_ENOUGH()
         {

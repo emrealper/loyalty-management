@@ -16,23 +16,20 @@ namespace API.Controllers
         [Route("CollectPoint")]
         [HttpPut]
         [SwaggerOperation(
-    Summary = "Collects points to the Account",
-    Description = "Collects points to the Account",
-    OperationId = "Account.CollectPoint",
-    Tags = new[] { "Earn & Burn" })
+   Summary = "Collects points to the Account", Description = "Collects points to the Account",
+   OperationId = "Account.CollectPoint", Tags = new[] { "Earn & Burn" })
             ]
         public async Task<IActionResult> CollectPointToAccount([FromBody] CollectPointCommand command)
         {
             var result = await Mediator.Send(command);
             return Ok(result);
         }
+
         [Route("RedeemPoint")]
         [HttpPut]
         [SwaggerOperation(
-    Summary = "Redeems points from the Account",
-    Description = "Redeems points from the Account",
-    OperationId = "Account.RedeemPoint",
-    Tags = new[] { "Earn & Burn" })
+    Summary = "Redeems points from the Account", Description = "Redeems points from the Account", 
+    OperationId = "Account.RedeemPoint", Tags = new[] { "Earn & Burn" })
             ]
         public async Task<IActionResult> RedeemPointToAccount([FromBody] RedeemPointCommand command)
         {

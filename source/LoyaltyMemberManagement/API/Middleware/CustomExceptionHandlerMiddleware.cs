@@ -19,6 +19,7 @@ namespace API.Middleware
             _next = next;
             _logger = logger;
         }
+
         public async Task Invoke(HttpContext context)
         {
             try
@@ -31,6 +32,7 @@ namespace API.Middleware
                 await HandleExceptionAsync(context, ex);
             }
         }
+
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             var code = HttpStatusCode.InternalServerError;
@@ -51,8 +53,8 @@ namespace API.Middleware
             return context.Response.WriteAsync(result);
         }
     }
-    public static class CustomExceptionHandlerMiddlewareExtensions
-    {
+         public static class CustomExceptionHandlerMiddlewareExtensions
+         {
         public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<CustomExceptionHandlerMiddleware>();

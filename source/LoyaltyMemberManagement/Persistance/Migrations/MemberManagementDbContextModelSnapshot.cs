@@ -17,6 +17,7 @@ namespace Persistance.Migrations
                 .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.3");
+
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.Member", b =>
                 {
                     b.Property<long>("Id")
@@ -50,6 +51,7 @@ namespace Persistance.Migrations
                     b.HasKey("Id");
                     b.ToTable("members");
                 });
+
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.MemberAccount", b =>
                 {
                     b.Property<long>("Id")
@@ -90,12 +92,14 @@ namespace Persistance.Migrations
                     b.HasIndex("MemberId");
                     b.ToTable("memberaccounts");
                 });
+
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.MemberAccount", b =>
                 {
                     b.HasOne("Domain.AggregatesModel.MemberAggregate.Member", null)
                         .WithMany("MemberAccounts")
                         .HasForeignKey("MemberId");
                 });
+
             modelBuilder.Entity("Domain.AggregatesModel.MemberAggregate.Member", b =>
                 {
                     b.Navigation("MemberAccounts");

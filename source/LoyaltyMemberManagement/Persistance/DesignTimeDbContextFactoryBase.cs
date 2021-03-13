@@ -15,6 +15,7 @@ namespace Persistence
             var basePath = Directory.GetCurrentDirectory() + string.Format("{0}..{0}API", Path.DirectorySeparatorChar);
             return Create(basePath, Environment.GetEnvironmentVariable(AspNetCoreEnvironment));
         }
+
         protected abstract TContext CreateNewInstance(DbContextOptions<TContext> options);
         private TContext Create(string basePath, string environmentName)
         {
@@ -28,6 +29,7 @@ namespace Persistence
             var connectionString = configuration.GetConnectionString(ConnectionStringName);
             return Create(connectionString);
         }
+
         private TContext Create(string connectionString)
         {
             if (string.IsNullOrEmpty(connectionString))
